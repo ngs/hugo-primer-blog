@@ -1,0 +1,32 @@
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.112.0"
+
+[params]
+  # Layout
+  sidebar = true
+  recentPosts = 5
+  showTags = true
+  showArchive = true
+
+  # Theme
+  defaultTheme = "auto"  # auto, light, dark
+
+  # Content
+  dateFormat = "2006-01-02"
+  showReadingTime = true
+  showAuthor = true
+  showShareButtons = true
+
+  # Pagination
+  paginate = 10
+
+[markup]
+  [markup.highlight]
+    style = "github"
+    lineNos = false
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

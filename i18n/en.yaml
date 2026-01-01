@@ -1,0 +1,50 @@
+# Navigation
+mainNavigation: "Main navigation"
+footerNavigation: "Footer navigation"
+selectLanguage: "Select language"
+
+# Theme
+toggleTheme: "Toggle theme"
+themeLight: "Light theme"
+themeDark: "Dark theme"
+themeAuto: "System theme"
+
+# Content
+latestPosts: "Latest Posts"
+recentPosts: "Recent Posts"
+relatedPosts: "Related Posts"
+noPosts: "No posts found."
+
+# Taxonomy
+tags: "Tags"
+categories: "Categories"
+archive: "Archive"
+links: "Links"
+
+# Reading
+minRead: "min read"
+
+# Share
+share: "Share"
+
+# Pagination
+pagination: "Pagination"
+previous: "Previous"
+next: "Next"
+previousPage: "Previous page"
+nextPage: "Next page"
+page: "Page"
+
+# 404
+pageNotFound: "The page you're looking for doesn't exist."
+backToHome: "Back to Home"
+
+# Sidebar Custom Modules
+aboutMe: "About Me"
+authorRole: "Developer & Blogger"
+authorBio: "Welcome to my blog! I write about web development, Hugo, and open source projects."
+followMe: "Follow Me"
+
+# Footer
+poweredBy: "Powered by"
+and: "and"

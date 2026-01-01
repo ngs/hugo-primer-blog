@@ -1,0 +1,19 @@
+{
+  "name": "hugo-primer-blog",
+  "version": "1.0.0",
+  "description": "A Hugo blog theme using GitHub's Primer CSS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngs/hugo-primer-blog.git"
+  },
+  "author": "Atsushi Nagase <a@ngs.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@primer/css": "^21.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0"
+  }
+}

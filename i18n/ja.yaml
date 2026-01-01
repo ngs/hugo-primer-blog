@@ -1,0 +1,50 @@
+# Navigation
+mainNavigation: "メインナビゲーション"
+footerNavigation: "フッターナビゲーション"
+selectLanguage: "言語を選択"
+
+# Theme
+toggleTheme: "テーマを切り替え"
+themeLight: "ライトテーマ"
+themeDark: "ダークテーマ"
+themeAuto: "システム設定"
+
+# Content
+latestPosts: "最新の記事"
+recentPosts: "最近の記事"
+relatedPosts: "関連記事"
+noPosts: "記事がありません。"
+
+# Taxonomy
+tags: "タグ"
+categories: "カテゴリー"
+archive: "アーカイブ"
+links: "リンク"
+
+# Reading
+minRead: "分で読めます"
+
+# Share
+share: "共有"
+
+# Pagination
+pagination: "ページネーション"
+previous: "前へ"
+next: "次へ"
+previousPage: "前のページ"
+nextPage: "次のページ"
+page: "ページ"
+
+# 404
+pageNotFound: "お探しのページは見つかりませんでした。"
+backToHome: "ホームに戻る"
+
+# Sidebar Custom Modules
+aboutMe: "プロフィール"
+authorRole: "開発者 & ブロガー"
+authorBio: "ブログへようこそ！Web開発、Hugo、オープンソースプロジェクトについて書いています。"
+followMe: "フォローする"
+
+# Footer
+poweredBy: "Powered by"
+and: "と"

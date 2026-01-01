@@ -1,0 +1,9 @@
+{{- /*
+  Workaround: Remove class="language-*" from <code> elements to prevent
+  1Password browser extension from injecting Prism.js and overwriting
+  Hugo's Chroma syntax highlighting.
+
+  See: https://x.com/youyuxi/status/2005904473332564339
+*/ -}}
+{{- $result := transform.HighlightCodeBlock . -}}
+{{- $result.Wrapped | replaceRE `class="language-[^"]*" ` `` | safeHTML -}}

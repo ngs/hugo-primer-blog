@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body>
+  <div class="d-flex flex-column min-height-full">
+    {{- partial "header.html" . -}}
+
+    <main class="flex-auto">
+      <div class="container-xl px-3 px-md-4 px-lg-5 py-4">
+        {{- if and site.Params.sidebar (not .IsHome) -}}
+        <div class="Layout Layout--sidebarPosition-end Layout--flowRow-until-md">
+          <div class="Layout-main">
+            {{- block "main" . }}{{- end }}
+          </div>
+          <div class="Layout-sidebar">
+            {{- partial "sidebar.html" . -}}
+          </div>
+        </div>
+        {{- else -}}
+        {{- block "main" . }}{{- end }}
+        {{- end -}}
+      </div>
+    </main>
+
+    {{- partial "footer.html" . -}}
+  </div>
+
+  {{- $js := resources.Get "js/theme-switcher.js" | minify | fingerprint -}}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+</body>
+</html>

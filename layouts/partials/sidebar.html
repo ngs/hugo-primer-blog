@@ -1,0 +1,80 @@
+{{- if site.Params.sidebar -}}
+<aside>
+  {{/* Custom sidebar modules from config */}}
+  {{- range site.Params.sidebarModules -}}
+    {{- if .partial -}}
+      {{- partial (printf "sidebar/%s.html" .partial) $ -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if site.Params.showTags -}}
+  {{- $tags := .Site.Taxonomies.tags -}}
+  {{- if $tags -}}
+  <div class="color-bg-subtle rounded-2 p-3 mb-3">
+    <h3 class="h5 mb-2">{{ i18n "tags" | default "Tags" }}</h3>
+    <div class="d-flex flex-wrap" style="gap: 0.5rem;">
+      {{- range $name, $taxonomy := $tags -}}
+      <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" class="topic-tag">
+        {{ $name }}
+      </a>
+      {{- end -}}
+    </div>
+  </div>
+  {{- end -}}
+  {{- end -}}
+
+  {{- if site.Params.recentPosts -}}
+  {{- $recentPosts := where .Site.RegularPages "Section" "posts" | first site.Params.recentPosts -}}
+  {{- if $recentPosts -}}
+  <div class="color-bg-subtle rounded-2 p-3 mb-3">
+    <h3 class="h5 mb-2">{{ i18n "recentPosts" | default "Recent Posts" }}</h3>
+    <ul class="list-style-none">
+      {{- range $recentPosts -}}
+      <li class="mb-2">
+        <a href="{{ .RelPermalink }}" class="Link--primary">{{ .Title }}</a>
+        <span class="color-fg-muted f6 d-block">
+          {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
+        </span>
+      </li>
+      {{- end -}}
+    </ul>
+  </div>
+  {{- end -}}
+  {{- end -}}
+
+  {{- if site.Params.showArchive -}}
+  {{- $posts := where .Site.RegularPages "Section" "posts" -}}
+  {{- if $posts -}}
+  {{- $byMonth := $posts.GroupByDate "2006-01" -}}
+  {{- if $byMonth -}}
+  <div class="color-bg-subtle rounded-2 p-3 mb-3">
+    <h3 class="h5 mb-2">{{ i18n "archive" | default "Archive" }}</h3>
+    <ul class="list-style-none">
+      {{- range $byMonth | first 12 -}}
+      <li class="mb-1">
+        <a href="{{ "/archives/" | relLangURL }}{{ .Key | urlize }}/" class="Link--secondary">
+          {{ .Key }} <span class="Counter Counter--secondary ml-1">{{ len .Pages }}</span>
+        </a>
+      </li>
+      {{- end -}}
+    </ul>
+  </div>
+  {{- end -}}
+  {{- end -}}
+  {{- end -}}
+
+  {{- if .Site.Menus.sidebar -}}
+  <div class="color-bg-subtle rounded-2 p-3 mb-3">
+    <h3 class="h5 mb-2">{{ i18n "links" | default "Links" }}</h3>
+    <ul class="list-style-none">
+      {{- range .Site.Menus.sidebar -}}
+      <li class="mb-1">
+        <a href="{{ .URL }}" class="Link--secondary">{{ .Name }}</a>
+      </li>
+      {{- end -}}
+    </ul>
+  </div>
+  {{- end -}}
+
+</aside>
+{{- end -}}

@@ -1,0 +1,111 @@
+baseURL = "https://example.com/"
+title = "My Blog"
+theme = "hugo-primer-blog"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+enableRobotsTXT = true
+enableGitInfo = false
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    contentDir = "content/en"
+    [languages.en.params]
+      description = "A blog powered by Hugo and Primer CSS"
+
+  [languages.ja]
+    languageName = "日本語"
+    weight = 2
+    contentDir = "content/ja"
+    [languages.ja.params]
+      description = "Hugo と Primer CSS で構築されたブログ"
+
+[params]
+  sidebar = true
+  recentPosts = 5
+  showTags = true
+  showArchive = true
+  defaultTheme = "auto"
+  dateFormat = "2006-01-02"
+  showReadingTime = true
+  showAuthor = true
+  showShareButtons = true
+  author = "Your Name"
+  description = "A blog powered by Hugo and Primer CSS"
+
+  # Custom sidebar modules (loaded from layouts/partials/sidebar/*.html)
+  [[params.sidebarModules]]
+    partial = "aboutme"
+
+  [[params.sidebarModules]]
+    partial = "social"
+
+  [params.social]
+    github = "your-username"
+    twitter = "your-username"
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menus.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+
+  [[menus.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+  [[menus.main]]
+    name = "About"
+    url = "/about/"
+    weight = 4
+
+  [[menus.footer]]
+    name = "Privacy"
+    url = "/privacy/"
+    weight = 1
+
+  [[menus.footer]]
+    name = "Terms"
+    url = "/terms/"
+    weight = 2
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    hl_inline = false
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    noHl = false
+    style = "github"
+    tabWidth = 4
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML", "RSS"]
+
+[pagination]
+  pagerSize = 10

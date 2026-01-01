@@ -1,0 +1,87 @@
+{{- define "main" -}}
+<article>
+  <header class="mb-4">
+    <h1 class="f1 lh-condensed mb-2">{{ .Title }}</h1>
+    <div class="d-flex flex-items-center color-fg-muted f5 mb-3">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
+      </time>
+      {{- if site.Params.showReadingTime -}}
+      <span class="mx-2">&middot;</span>
+      <span>{{ .ReadingTime }} {{ i18n "minRead" | default "min read" }}</span>
+      {{- end -}}
+      {{- if and site.Params.showAuthor .Params.author -}}
+      <span class="mx-2">&middot;</span>
+      <span>{{ .Params.author }}</span>
+      {{- end -}}
+    </div>
+
+    {{- with .Params.tags -}}
+    <div class="d-flex flex-wrap mb-3" style="gap: 0.5rem;">
+      {{- range . -}}
+      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="topic-tag">{{ . }}</a>
+      {{- end -}}
+    </div>
+    {{- end -}}
+
+    {{- with .Params.image -}}
+    <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="rounded-2 width-full mb-3" style="max-height: 400px; object-fit: cover;">
+    {{- end -}}
+  </header>
+
+  <div class="markdown-body">
+    {{ .Content }}
+  </div>
+
+  {{- if site.Params.showShareButtons -}}
+  <div class="border-top pt-4 mt-4">
+    <p class="f5 text-bold mb-2">{{ i18n "share" | default "Share" }}</p>
+    <div class="d-flex">
+      <a href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2">
+        Twitter
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2">
+        Facebook
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  {{- end -}}
+
+  {{- $related := .Site.RegularPages.Related . | first 3 -}}
+  {{- with $related -}}
+  <div class="border-top pt-4 mt-4">
+    <h2 class="f4 mb-3">{{ i18n "relatedPosts" | default "Related Posts" }}</h2>
+    <div class="d-flex flex-column flex-md-row">
+      {{- range . -}}
+      <div class="flex-1 mb-3 mb-md-0 mr-md-3">
+        <a href="{{ .RelPermalink }}" class="Link--primary text-bold">{{ .Title }}</a>
+        <p class="color-fg-muted f6 mb-0">
+          {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
+        </p>
+      </div>
+      {{- end -}}
+    </div>
+  </div>
+  {{- end -}}
+
+  <nav class="border-top pt-4 mt-4">
+    <div class="d-flex flex-justify-between">
+      {{- with .PrevInSection -}}
+      <a href="{{ .RelPermalink }}" class="Link--secondary">
+        &larr; {{ .Title | truncate 40 }}
+      </a>
+      {{- else -}}
+      <span></span>
+      {{- end -}}
+      {{- with .NextInSection -}}
+      <a href="{{ .RelPermalink }}" class="Link--secondary">
+        {{ .Title | truncate 40 }} &rarr;
+      </a>
+      {{- end -}}
+    </div>
+  </nav>
+</article>
+{{- end -}}

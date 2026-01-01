@@ -1,0 +1,15 @@
+{{- define "main" -}}
+<div class="blankslate">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" class="blankslate-icon">
+    <path d="M12 7a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-4.5A.75.75 0 0 1 12 7Zm0 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+    <path d="M10.24 3.957l-8.422 14.06a1.989 1.989 0 0 0-.005 2.005A1.989 1.989 0 0 0 3.557 21H20.44a2 2 0 0 0 1.77-2.912L13.763 3.957a2.089 2.089 0 0 0-3.523 0Zm1.042.841a.59.59 0 0 1 1.026 0l8.422 14.06a.504.504 0 0 1 0 .501.502.502 0 0 1-.44.241H3.558a.502.502 0 0 1-.437-.241.5.5 0 0 1-.002-.501L11.282 4.8v-.002Z"></path>
+  </svg>
+  <h1 class="blankslate-heading">404</h1>
+  <p>{{ i18n "pageNotFound" | default "Page not found" }}</p>
+  <div class="blankslate-action">
+    <a href="{{ .Site.Home.RelPermalink }}" class="btn btn-primary">
+      {{ i18n "backToHome" | default "Back to Home" }}
+    </a>
+  </div>
+</div>
+{{- end -}}

@@ -1,0 +1,14 @@
+{{- define "main" -}}
+<div class="Subhead mb-4">
+  <h1 class="Subhead-heading">{{ .Title }}</h1>
+</div>
+
+<div class="d-flex flex-wrap">
+  {{- range .Data.Terms.Alphabetical -}}
+  <a href="{{ .Page.RelPermalink }}" class="Label Label--large Label--secondary m-1">
+    {{ .Page.Title }}
+    <span class="Counter Counter--secondary ml-1">{{ .Count }}</span>
+  </a>
+  {{- end -}}
+</div>
+{{- end -}}

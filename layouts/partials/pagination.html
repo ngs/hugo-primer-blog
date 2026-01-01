@@ -1,0 +1,39 @@
+{{- if gt .TotalPages 1 -}}
+<nav class="paginate-container mt-4" aria-label="{{ i18n "pagination" | default "Pagination" }}">
+  <div class="pagination">
+    {{- if .HasPrev -}}
+    <a class="previous_page" href="{{ .Prev.URL }}" rel="prev" aria-label="{{ i18n "previousPage" | default "Previous page" }}">
+      {{ i18n "previous" | default "Previous" }}
+    </a>
+    {{- else -}}
+    <span class="previous_page" aria-disabled="true">
+      {{ i18n "previous" | default "Previous" }}
+    </span>
+    {{- end -}}
+
+    {{- $currentPage := .PageNumber -}}
+    {{- $totalPages := .TotalPages -}}
+
+    {{- range .Pagers -}}
+    {{- $pageNum := .PageNumber -}}
+    {{- if eq $pageNum $currentPage -}}
+    <em class="current" aria-current="page">{{ $pageNum }}</em>
+    {{- else if or (le $pageNum 2) (ge $pageNum (sub $totalPages 1)) (and (ge $pageNum (sub $currentPage 1)) (le $pageNum (add $currentPage 1))) -}}
+    <a href="{{ .URL }}" aria-label="{{ i18n "page" | default "Page" }} {{ $pageNum }}">{{ $pageNum }}</a>
+    {{- else if or (eq $pageNum 3) (eq $pageNum (sub $totalPages 2)) -}}
+    <span class="gap">&hellip;</span>
+    {{- end -}}
+    {{- end -}}
+
+    {{- if .HasNext -}}
+    <a class="next_page" href="{{ .Next.URL }}" rel="next" aria-label="{{ i18n "nextPage" | default "Next page" }}">
+      {{ i18n "next" | default "Next" }}
+    </a>
+    {{- else -}}
+    <span class="next_page" aria-disabled="true">
+      {{ i18n "next" | default "Next" }}
+    </span>
+    {{- end -}}
+  </div>
+</nav>
+{{- end -}}
