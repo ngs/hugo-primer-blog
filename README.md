@@ -1,5 +1,7 @@
 # Primer Blog
 
+![screenshot](images/screenshot.png)
+
 A clean, responsive Hugo blog theme using GitHub's [Primer CSS](https://primer.style/) design system.
 
 **[Live Demo](https://hugo-primer-blog-demo.ngs.io)**
