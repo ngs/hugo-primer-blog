@@ -2,6 +2,8 @@
 
 A clean, responsive Hugo blog theme using GitHub's [Primer CSS](https://primer.style/) design system.
 
+**[Live Demo](https://ngs.github.io/hugo-primer-blog/)**
+
 ## Features
 
 - **Dark Mode** - Automatic system preference detection with manual override, saved to localStorage
