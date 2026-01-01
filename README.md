@@ -2,7 +2,7 @@
 
 A clean, responsive Hugo blog theme using GitHub's [Primer CSS](https://primer.style/) design system.
 
-**[Live Demo](https://ngs.github.io/hugo-primer-blog/)**
+**[Live Demo](https://hugo-primer-blog-demo.ngs.io)**
 
 ## Features
 
