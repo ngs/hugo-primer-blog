@@ -2,9 +2,9 @@
 title: "サンプル記事 9: テスト投稿"
 date: 2024-02-10
 draft: false
-tags: ["サンプル", "デモ"]
+tags: ["testing", "jest", "automation"]
 archives: ["2024-02"]
-categories: ["general"]
+categories: ["testing"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 9 です。"
 ---

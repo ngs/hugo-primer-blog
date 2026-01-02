@@ -93,7 +93,7 @@ defaultContentLanguageInSubdir = true
 
   [params.social]
     github = "your-username"
-    twitter = "your-username"
+    x = "your-username"
 ```
 
 ### Multilingual Configuration

@@ -45,5 +45,10 @@ authorRole: "開発者 & ブロガー"
 authorBio: "ブログへようこそ！Web開発、Hugo、オープンソースプロジェクトについて書いています。"
 followMe: "フォローする"
 
+# Sidebar
+showMore: "もっと見る"
+showLess: "閉じる"
+viewAll: "すべて見る"
+
 # Footer
 poweredBy: "Powered by"

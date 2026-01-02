@@ -45,5 +45,10 @@ authorRole: "Developer & Blogger"
 authorBio: "Welcome to my blog! I write about web development, Hugo, and open source projects."
 followMe: "Follow Me"
 
+# Sidebar
+showMore: "Show more"
+showLess: "Show less"
+viewAll: "View all"
+
 # Footer
 poweredBy: "Powered by"

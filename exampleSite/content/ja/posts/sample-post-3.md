@@ -1,10 +1,10 @@
 ---
 title: "サンプル記事 3: テスト投稿"
-date: 2024-01-03
+date: 2023-10-15
 draft: false
-tags: ["サンプル", "デモ"]
-archives: ["2024-01"]
-categories: ["general"]
+tags: ["node", "npm", "tooling"]
+archives: ["2023-10"]
+categories: ["development"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 3 です。"
 ---

@@ -1,10 +1,10 @@
 ---
 title: "サンプル記事 14: テスト投稿"
-date: 2024-01-14
+date: 2024-07-15
 draft: false
-tags: ["サンプル", "デモ"]
-archives: ["2024-01"]
-categories: ["general"]
+tags: ["nextjs", "react", "ssr"]
+archives: ["2024-07"]
+categories: ["development"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 14 です。"
 ---

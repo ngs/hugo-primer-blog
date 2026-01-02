@@ -1,10 +1,10 @@
 ---
 title: "サンプル記事 13: テスト投稿"
-date: 2024-01-13
+date: 2024-06-10
 draft: false
-tags: ["サンプル", "デモ"]
-archives: ["2024-01"]
-categories: ["general"]
+tags: ["graphql", "api", "rest"]
+archives: ["2024-06"]
+categories: ["development"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 13 です。"
 ---

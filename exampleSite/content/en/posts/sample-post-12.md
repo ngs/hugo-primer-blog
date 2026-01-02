@@ -1,10 +1,10 @@
 ---
 title: "Sample Post 12: Lorem Ipsum"
-date: 2024-01-12
+date: 2024-05-20
 draft: false
-tags: ["sample", "demo"]
-archives: ["2024-03"]
-categories: ["general"]
+tags: ["kubernetes", "cloud", "microservices"]
+archives: ["2024-05"]
+categories: ["devops"]
 author: "Demo Author"
 description: "This is sample post number 12 for testing pagination functionality."
 ---

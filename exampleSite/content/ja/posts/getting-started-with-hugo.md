@@ -2,7 +2,7 @@
 title: "Hugo 入門"
 date: 2024-01-10
 draft: false
-tags: ["hugo", "tutorial", "static-site"]
+tags: ["hugo", "static-site", "ssg", "jamstack"]
 archives: ["2024-01"]
 categories: ["tutorial"]
 author: "Your Name"

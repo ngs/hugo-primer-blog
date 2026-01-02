@@ -1,10 +1,10 @@
 ---
 title: "サンプル記事 15: テスト投稿"
-date: 2024-01-15
+date: 2024-08-20
 draft: false
-tags: ["サンプル", "デモ"]
-archives: ["2024-01"]
-categories: ["general"]
+tags: ["git", "github", "version-control"]
+archives: ["2024-08"]
+categories: ["tools"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 15 です。"
 ---

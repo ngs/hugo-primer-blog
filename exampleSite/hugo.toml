@@ -1,126 +1,126 @@
 baseURL = "https://example.com/"
-title = "My Blog"
 theme = "hugo-primer-blog"
+title = "My Blog"
 
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = false
 
-enableRobotsTXT = true
 enableGitInfo = false
+enableRobotsTXT = true
 
 [languages]
-  [languages.en]
-    languageName = "English"
-    weight = 1
-    contentDir = "content/en"
-    [languages.en.params]
-      description = "A blog powered by Hugo and Primer CSS"
+[languages.en]
+contentDir = "content/en"
+languageName = "English"
+weight = 1
+[languages.en.params]
+description = "A blog powered by Hugo and Primer CSS"
 
-  [languages.ja]
-    languageName = "日本語"
-    weight = 2
-    contentDir = "content/ja"
-    [languages.ja.params]
-      description = "Hugo と Primer CSS で構築されたブログ"
+[languages.ja]
+contentDir = "content/ja"
+languageName = "日本語"
+weight = 2
+[languages.ja.params]
+description = "Hugo と Primer CSS で構築されたブログ"
 
 [params]
-  sidebar = true
-  recentPostsCount = 5
-  defaultTheme = "auto"
-  dateFormat = "2006-01-02"
-  showReadingTime = true
-  showAuthor = true
-  showShareButtons = true
-  author = "Your Name"
-  description = "A blog powered by Hugo and Primer CSS"
+author = "Your Name"
+dateFormat = "2006-01-02"
+defaultTheme = "auto"
+description = "A blog powered by Hugo and Primer CSS"
+recentPostsCount = 5
+showAuthor = true
+showReadingTime = true
+showShareButtons = true
+sidebar = true
 
-  # Sidebar modules (loaded from layouts/partials/sidebar/*.html)
-  # Order determines display order
-  [[params.sidebarModules]]
-    partial = "aboutme"
+# Sidebar modules (loaded from layouts/partials/sidebar/*.html)
+# Order determines display order
+[[params.sidebarModules]]
+partial = "aboutme"
 
-  [[params.sidebarModules]]
-    partial = "social"
+[[params.sidebarModules]]
+partial = "social"
 
-  [[params.sidebarModules]]
-    partial = "recentPosts"
+[[params.sidebarModules]]
+partial = "recentPosts"
 
-  [[params.sidebarModules]]
-    partial = "tags"
+[[params.sidebarModules]]
+partial = "tags"
 
-  [[params.sidebarModules]]
-    partial = "categories"
+[[params.sidebarModules]]
+partial = "categories"
 
-  [[params.sidebarModules]]
-    partial = "archive"
+[[params.sidebarModules]]
+partial = "archive"
 
-  [[params.sidebarModules]]
-    partial = "links"
+[[params.sidebarModules]]
+partial = "links"
 
-  [params.social]
-    github = "your-username"
-    twitter = "your-username"
+[params.social]
+github = "your-username"
+x = "your-username"
 
 [menus]
-  [[menus.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
+[[menus.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-  [[menus.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 2
+[[menus.main]]
+name = "Posts"
+url = "/posts/"
+weight = 2
 
-  [[menus.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 3
+[[menus.main]]
+name = "Tags"
+url = "/tags/"
+weight = 3
 
-  [[menus.main]]
-    name = "About"
-    url = "/about/"
-    weight = 4
+[[menus.main]]
+name = "About"
+url = "/about/"
+weight = 4
 
-  [[menus.footer]]
-    name = "Privacy"
-    url = "/privacy/"
-    weight = 1
+[[menus.footer]]
+name = "Privacy"
+url = "/privacy/"
+weight = 1
 
-  [[menus.footer]]
-    name = "Terms"
-    url = "/terms/"
-    weight = 2
+[[menus.footer]]
+name = "Terms"
+url = "/terms/"
+weight = 2
 
 [taxonomies]
-  tag = "tags"
-  category = "categories"
-  archive = "archives"
+archive = "archives"
+category = "categories"
+tag = "tags"
 
 [markup]
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = true
-    hl_Lines = ""
-    hl_inline = false
-    lineAnchors = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = false
-    noHl = false
-    style = "github"
-    tabWidth = 4
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = true
+hl_Lines = ""
+hl_inline = false
+lineAnchors = ""
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = false
+noHl = false
+style = "github"
+tabWidth = 4
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
 [outputs]
-  home = ["HTML", "RSS"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML"]
-  term = ["HTML", "RSS"]
+home = ["HTML", "RSS"]
+section = ["HTML", "RSS"]
+taxonomy = ["HTML"]
+term = ["HTML", "RSS"]
 
 [pagination]
-  pagerSize = 10
+pagerSize = 10

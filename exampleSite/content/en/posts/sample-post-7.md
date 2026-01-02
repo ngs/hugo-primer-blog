@@ -2,9 +2,9 @@
 title: "Sample Post 7: Lorem Ipsum"
 date: 2023-12-15
 draft: false
-tags: ["sample", "demo"]
+tags: ["typescript", "api", "backend"]
 archives: ["2023-12"]
-categories: ["general"]
+categories: ["development"]
 author: "Demo Author"
 description: "This is sample post number 7 for testing pagination functionality."
 ---

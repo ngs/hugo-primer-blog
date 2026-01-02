@@ -1,10 +1,10 @@
 ---
 title: "サンプル記事 12: テスト投稿"
-date: 2024-03-15
+date: 2024-05-20
 draft: false
-tags: ["サンプル", "デモ"]
-archives: ["2024-03"]
-categories: ["general"]
+tags: ["kubernetes", "cloud", "microservices"]
+archives: ["2024-05"]
+categories: ["devops"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 12 です。"
 ---

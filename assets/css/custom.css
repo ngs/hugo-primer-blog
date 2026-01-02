@@ -766,3 +766,32 @@ footer a:hover {
   top: 50%;
   transform: translateY(-50%);
 }
+
+/* ========================================
+   Sidebar Collapsible
+   ======================================== */
+.sidebar-collapsible {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.sidebar-collapsible.is-collapsed::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--bgColor-muted, #f6f8fa));
+  pointer-events: none;
+}
+
+.sidebar-toggle-btn {
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.sidebar-toggle-btn:hover {
+  text-decoration: underline;
+}

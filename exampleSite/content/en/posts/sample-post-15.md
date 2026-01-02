@@ -1,10 +1,10 @@
 ---
 title: "Sample Post 15: Lorem Ipsum"
-date: 2024-01-15
+date: 2024-08-20
 draft: false
-tags: ["sample", "demo"]
-archives: ["2024-01"]
-categories: ["general"]
+tags: ["git", "github", "version-control"]
+archives: ["2024-08"]
+categories: ["tools"]
 author: "Demo Author"
 description: "This is sample post number 15 for testing pagination functionality."
 ---

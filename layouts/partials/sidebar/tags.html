@@ -1,8 +1,15 @@
 {{- $tags := .Site.Taxonomies.tags -}}
 {{- if $tags -}}
 <div class="color-bg-subtle rounded-2 p-3 mb-3">
-  <h3 class="h5 mb-2">{{ i18n "tags" | default "Tags" }}</h3>
-  <div class="d-flex flex-wrap" style="gap: 0.5rem;">
+  <h3 class="h5 mb-2">
+    <a href="{{ "/tags/" | relLangURL }}" class="Link--primary">{{ i18n "tags" | default "Tags" }}</a>
+  </h3>
+  <div class="sidebar-collapsible d-flex flex-wrap" style="gap: 0.5rem;"
+    data-max-height="150"
+    data-view-all="{{ "/tags/" | relLangURL }}"
+    data-label-more="{{ i18n "showMore" | default "Show more" }}"
+    data-label-less="{{ i18n "showLess" | default "Show less" }}"
+    data-label-view-all="{{ i18n "viewAll" | default "View all" }}">
     {{- range $name, $taxonomy := $tags -}}
     <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" class="topic-tag">
       {{ $name }}

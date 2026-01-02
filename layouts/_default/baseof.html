@@ -27,7 +27,9 @@
     {{- partial "footer.html" . -}}
   </div>
 
-  {{- $js := resources.Get "js/theme-switcher.js" | minify | fingerprint -}}
-  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+  {{- $themeJs := resources.Get "js/theme-switcher.js" | minify | fingerprint -}}
+  <script src="{{ $themeJs.RelPermalink }}" integrity="{{ $themeJs.Data.Integrity }}"></script>
+  {{- $sidebarJs := resources.Get "js/sidebar.js" | minify | fingerprint -}}
+  <script src="{{ $sidebarJs.RelPermalink }}" integrity="{{ $sidebarJs.Data.Integrity }}"></script>
 </body>
 </html>

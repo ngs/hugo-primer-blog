@@ -4,7 +4,12 @@
   <h3 class="h5 mb-2">
     <a href="{{ "/archives/" | relLangURL }}" class="Link--primary">{{ i18n "archive" | default "Archive" }}</a>
   </h3>
-  <ul class="list-style-none">
+  <ul class="sidebar-collapsible list-style-none"
+    data-max-height="200"
+    data-view-all="{{ "/archives/" | relLangURL }}"
+    data-label-more="{{ i18n "showMore" | default "Show more" }}"
+    data-label-less="{{ i18n "showLess" | default "Show less" }}"
+    data-label-view-all="{{ i18n "viewAll" | default "View all" }}">
     {{- range $taxonomy.ByCount | first 12 -}}
     <li class="mb-1">
       <a href="{{ .Page.RelPermalink }}" class="Link--secondary">

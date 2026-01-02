@@ -2,9 +2,9 @@
 title: "Sample Post 9: Lorem Ipsum"
 date: 2024-02-10
 draft: false
-tags: ["sample", "demo"]
+tags: ["testing", "jest", "automation"]
 archives: ["2024-02"]
-categories: ["general"]
+categories: ["testing"]
 author: "Demo Author"
 description: "This is sample post number 9 for testing pagination functionality."
 ---

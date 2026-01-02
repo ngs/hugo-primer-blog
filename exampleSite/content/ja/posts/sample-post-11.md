@@ -1,10 +1,10 @@
 ---
 title: "サンプル記事 11: テスト投稿"
-date: 2024-03-05
+date: 2024-04-15
 draft: false
-tags: ["サンプル", "デモ"]
-archives: ["2024-03"]
-categories: ["general"]
+tags: ["database", "postgresql", "performance"]
+archives: ["2024-04"]
+categories: ["database"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 11 です。"
 ---
