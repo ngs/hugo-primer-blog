@@ -81,6 +81,7 @@ defaultContentLanguageInSubdir = true
   showReadingTime = true
   showAuthor = true
   showShareButtons = true
+  googleAnalyticsID = "G-XXXXXXXXXX"  # Google Analytics 4 ID
 
   # Sidebar modules - order determines display order
   # Available: recentPosts, tags, categories, archive, links (+ custom partials)
@@ -96,6 +97,18 @@ defaultContentLanguageInSubdir = true
   [params.social]
     github = "your-username"
     x = "your-username"
+
+  # Custom favicon (optional)
+  faviconIco = "favicon.ico"
+  faviconPng = "favicon.png"
+
+  # Apple Touch Icons (optional)
+  [[params.appleTouchIcons]]
+    sizes = "180x180"
+    href = "apple-touch-icon-180x180.png"
+  [[params.appleTouchIcons]]
+    sizes = "152x152"
+    href = "apple-touch-icon-152x152.png"
 ```
 
 ### Multilingual Configuration

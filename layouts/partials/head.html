@@ -115,7 +115,26 @@
 <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}" integrity="{{ $syntaxCss.Data.Integrity }}">
 
 <!-- Favicon -->
-<link rel="icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
+{{- if .Site.Params.appleTouchIcons -}}
+{{- range .Site.Params.appleTouchIcons -}}
+<link rel="apple-touch-icon"{{ with .sizes }} sizes="{{ . }}"{{ end }} href="{{ .href | relURL }}">
+{{- end -}}
+{{- end -}}
+{{- with .Site.Params.faviconPng -}}
+<link rel="shortcut icon" href="{{ . | relURL }}">
+{{- end -}}
+<link rel="icon" href="{{ .Site.Params.faviconIco | default "favicon.ico" | relURL }}" type="image/x-icon">
+
+<!-- Google Analytics -->
+{{- with .Site.Params.googleAnalyticsID -}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{- end -}}
 
 <!-- Theme initialization (prevent flash) -->
 <script>
