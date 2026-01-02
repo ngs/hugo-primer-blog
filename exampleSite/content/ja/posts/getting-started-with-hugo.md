@@ -7,6 +7,7 @@ archives: ["2024-01"]
 categories: ["tutorial"]
 author: "Your Name"
 description: "世界最速の静的サイトジェネレーター Hugo の使い方を学びましょう。"
+image: "https://picsum.photos/seed/hugo/800/400"
 ---
 
 Hugo は最も人気のあるオープンソース静的サイトジェネレーターの一つです。驚異的なスピードと柔軟性で、Hugo はウェブサイト構築を再び楽しいものにします。

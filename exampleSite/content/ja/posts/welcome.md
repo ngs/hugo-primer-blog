@@ -7,6 +7,7 @@ archives: ["2024-01"]
 categories: ["general"]
 author: "Your Name"
 description: "Hugo と Primer CSS で構築された新しいブログへようこそ。"
+image: "https://picsum.photos/seed/welcome/800/400"
 ---
 
 新しいブログへようこそ！このサイトは [Hugo](https://gohugo.io/) で構築され、GitHub のデザインシステム [Primer CSS](https://primer.style/) でスタイリングされています。

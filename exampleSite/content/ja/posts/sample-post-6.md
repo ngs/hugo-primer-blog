@@ -7,6 +7,7 @@ archives: ["2023-12"]
 categories: ["development"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 6 です。"
+image: "https://picsum.photos/seed/react/800/400"
 ---
 
 これはサンプル記事 6 です。

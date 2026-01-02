@@ -7,6 +7,7 @@ archives: ["2023-12"]
 categories: ["devops"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 8 です。"
+image: "https://picsum.photos/seed/docker/800/400"
 ---
 
 これはサンプル記事 8 です。

@@ -7,6 +7,7 @@ archives: ["2024-08"]
 categories: ["tools"]
 author: "Demo Author"
 description: "This is sample post number 15 for testing pagination functionality."
+image: "https://picsum.photos/seed/github/800/400"
 ---
 
 This is sample post number 15. Lorem ipsum dolor sit amet, consectetur adipiscing elit.

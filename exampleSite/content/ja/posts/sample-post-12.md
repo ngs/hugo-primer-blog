@@ -7,6 +7,7 @@ archives: ["2024-05"]
 categories: ["devops"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 12 です。"
+image: "https://picsum.photos/seed/kubernetes/800/400"
 ---
 
 これはサンプル記事 12 です。

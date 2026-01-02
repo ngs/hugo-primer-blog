@@ -7,6 +7,7 @@ archives: ["2024-01"]
 categories: ["design"]
 author: "Your Name"
 description: "An introduction to Primer CSS, GitHub's design system."
+image: "https://picsum.photos/seed/primer/800/400"
 ---
 
 Primer is GitHub's design system and CSS framework. It provides a set of guidelines and components to create consistent, accessible interfaces.

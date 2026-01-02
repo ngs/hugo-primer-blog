@@ -28,11 +28,13 @@ author = "Your Name"
 dateFormat = "2006-01-02"
 defaultTheme = "auto"
 description = "A blog powered by Hugo and Primer CSS"
+ogImage = "https://picsum.photos/seed/ogimage/1200/630"
 recentPostsCount = 5
 showAuthor = true
 showReadingTime = true
 showShareButtons = true
 sidebar = true
+twitterSite = "your-username"
 
 # Sidebar modules (loaded from layouts/partials/sidebar/*.html)
 # Order determines display order

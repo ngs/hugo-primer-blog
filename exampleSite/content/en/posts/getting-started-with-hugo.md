@@ -7,6 +7,7 @@ archives: ["2024-01"]
 categories: ["tutorial"]
 author: "Your Name"
 description: "Learn how to get started with Hugo, the world's fastest static site generator."
+image: "https://picsum.photos/seed/hugo/800/400"
 ---
 
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.

@@ -17,18 +17,25 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{- with .Params.image -}}
+{{- $ogImage := .Params.image | default .Site.Params.ogImage -}}
+{{- with $ogImage -}}
 <meta property="og:image" content="{{ . | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 {{- end -}}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:locale" content="{{ .Site.Language.Lang }}">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
+{{- $twitterImage := .Params.image | default .Site.Params.ogImage -}}
+<meta name="twitter:card" content="{{ if $twitterImage }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-{{- with .Params.image -}}
+{{- with $twitterImage -}}
 <meta name="twitter:image" content="{{ . | absURL }}">
+{{- end -}}
+{{- with .Site.Params.twitterSite -}}
+<meta name="twitter:site" content="@{{ . }}">
 {{- end -}}
 
 <!-- Canonical URL -->

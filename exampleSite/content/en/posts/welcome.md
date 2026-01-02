@@ -7,6 +7,7 @@ archives: ["2024-01"]
 categories: ["general"]
 author: "Your Name"
 description: "Welcome to my new blog powered by Hugo and Primer CSS."
+image: "https://picsum.photos/seed/welcome/800/400"
 ---
 
 Welcome to my new blog! This site is built with [Hugo](https://gohugo.io/) and styled with [Primer CSS](https://primer.style/), GitHub's design system.

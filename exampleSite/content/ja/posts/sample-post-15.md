@@ -7,6 +7,7 @@ archives: ["2024-08"]
 categories: ["tools"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 15 です。"
+image: "https://picsum.photos/seed/github/800/400"
 ---
 
 これはサンプル記事 15 です。

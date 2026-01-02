@@ -7,6 +7,7 @@ archives: ["2024-05"]
 categories: ["devops"]
 author: "Demo Author"
 description: "This is sample post number 12 for testing pagination functionality."
+image: "https://picsum.photos/seed/kubernetes/800/400"
 ---
 
 This is sample post number 12. Lorem ipsum dolor sit amet, consectetur adipiscing elit.

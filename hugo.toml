@@ -16,6 +16,10 @@
   showAuthor = true
   showShareButtons = true
 
+  # OGP / Social
+  # ogImage = "/images/og-default.png"  # Default OG image (1200x630 recommended)
+  # twitterSite = "your-username"       # Twitter @username (without @)
+
   # Pagination
   paginate = 10
 
