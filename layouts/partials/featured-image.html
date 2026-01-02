@@ -1,0 +1,33 @@
+{{- /*
+  Featured Image Partial
+
+  Usage: {{ partial "featured-image.html" (dict "page" . "class" "optional-class" "style" "optional-style") }}
+
+  Handles both:
+  - Page bundle resources (e.g., "featured.jpg")
+  - External URLs (e.g., "https://example.com/image.jpg")
+*/ -}}
+{{- $page := .page -}}
+{{- $class := .class | default "" -}}
+{{- $style := .style | default "" -}}
+{{- $alt := .alt | default $page.Title -}}
+
+{{- with $page.Params.image -}}
+  {{- $imageSrc := "" -}}
+  {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+    {{- /* External URL */ -}}
+    {{- $imageSrc = . -}}
+  {{- else -}}
+    {{- /* Page bundle resource */ -}}
+    {{- $resource := $page.Resources.GetMatch . -}}
+    {{- if $resource -}}
+      {{- $imageSrc = $resource.RelPermalink -}}
+    {{- else -}}
+      {{- /* Fallback to relURL for site-relative paths */ -}}
+      {{- $imageSrc = . | relURL -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $imageSrc -}}
+  <img src="{{ $imageSrc }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+  {{- end -}}
+{{- end -}}

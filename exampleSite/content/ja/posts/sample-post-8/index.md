@@ -1,0 +1,25 @@
+---
+title: "サンプル記事 8: テスト投稿"
+date: 2023-12-25
+draft: false
+tags: ["docker", "devops", "deployment"]
+archives: ["2023-12"]
+categories: ["devops"]
+author: "デモ著者"
+description: "ページネーション機能をテストするためのサンプル記事 8 です。"
+image: "featured.jpg"
+---
+
+これはサンプル記事 8 です。
+
+## はじめに
+
+この記事はページネーション機能のテスト用に作成されました。
+
+## 内容
+
+Hugo は世界最速の静的サイトジェネレーターです。Primer CSS は GitHub のデザインシステムです。
+
+## まとめ
+
+テスト記事をお読みいただきありがとうございます。

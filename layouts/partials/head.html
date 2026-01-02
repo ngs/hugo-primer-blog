@@ -17,9 +17,25 @@
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{- $ogImage := .Params.image | default .Site.Params.ogImage -}}
-{{- with $ogImage -}}
-<meta property="og:image" content="{{ . | absURL }}">
+{{- $ogImageSrc := "" -}}
+{{- with .Params.image -}}
+  {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+    {{- $ogImageSrc = . -}}
+  {{- else -}}
+    {{- $resource := $.Resources.GetMatch . -}}
+    {{- if $resource -}}
+      {{- $ogImageSrc = $resource.Permalink -}}
+    {{- else -}}
+      {{- $ogImageSrc = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- with .Site.Params.ogImage -}}
+    {{- $ogImageSrc = . -}}
+  {{- end -}}
+{{- end -}}
+{{- with $ogImageSrc -}}
+<meta property="og:image" content="{{ . }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 {{- end -}}
@@ -27,12 +43,11 @@
 <meta property="og:locale" content="{{ .Site.Language.Lang }}">
 
 <!-- Twitter Card -->
-{{- $twitterImage := .Params.image | default .Site.Params.ogImage -}}
-<meta name="twitter:card" content="{{ if $twitterImage }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:card" content="{{ if $ogImageSrc }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-{{- with $twitterImage -}}
-<meta name="twitter:image" content="{{ . | absURL }}">
+{{- with $ogImageSrc -}}
+<meta name="twitter:image" content="{{ . }}">
 {{- end -}}
 {{- with .Site.Params.twitterSite -}}
 <meta name="twitter:site" content="@{{ . }}">
