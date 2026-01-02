@@ -10,7 +10,7 @@
     data-label-more="{{ i18n "showMore" | default "Show more" }}"
     data-label-less="{{ i18n "showLess" | default "Show less" }}"
     data-label-view-all="{{ i18n "viewAll" | default "View all" }}">
-    {{- range $taxonomy.ByCount | first 12 -}}
+    {{- range $taxonomy.Alphabetical.Reverse -}}
     <li class="mb-1">
       <a href="{{ .Page.RelPermalink }}" class="Link--secondary">
         {{ .Page.Title }} <span class="Counter Counter--secondary ml-1">{{ .Count }}</span>

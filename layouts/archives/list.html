@@ -4,7 +4,7 @@
 
   {{ .Content }}
 
-  {{- $terms := .Data.Terms.ByCount -}}
+  {{- $terms := .Data.Terms.Alphabetical.Reverse -}}
   {{- if $terms -}}
   <div class="d-flex flex-wrap mt-4" style="gap: 0.5rem;">
     {{- range $terms -}}
