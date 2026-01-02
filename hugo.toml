@@ -5,9 +5,7 @@
 [params]
   # Layout
   sidebar = true
-  recentPosts = 5
-  showTags = true
-  showArchive = true
+  recentPostsCount = 5
 
   # Theme
   defaultTheme = "auto"  # auto, light, dark

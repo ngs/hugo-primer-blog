@@ -3,6 +3,7 @@ title: "Sample Post 13: Lorem Ipsum"
 date: 2024-01-13
 draft: false
 tags: ["sample", "demo"]
+archives: ["2024-01"]
 categories: ["general"]
 author: "Demo Author"
 description: "This is sample post number 13 for testing pagination functionality."

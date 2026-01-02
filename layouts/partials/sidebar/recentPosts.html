@@ -1,0 +1,17 @@
+{{- $count := site.Params.recentPostsCount | default 5 -}}
+{{- $recentPosts := where .Site.RegularPages "Section" "posts" | first $count -}}
+{{- if $recentPosts -}}
+<div class="color-bg-subtle rounded-2 p-3 mb-3">
+  <h3 class="h5 mb-2">{{ i18n "recentPosts" | default "Recent Posts" }}</h3>
+  <ul class="list-style-none">
+    {{- range $recentPosts -}}
+    <li class="mb-2">
+      <a href="{{ .RelPermalink }}" class="Link--primary">{{ .Title }}</a>
+      <span class="color-fg-muted f6 d-block">
+        {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
+      </span>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
+{{- end -}}

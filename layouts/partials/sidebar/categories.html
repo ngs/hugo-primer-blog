@@ -1,0 +1,15 @@
+{{- $categories := .Site.Taxonomies.categories -}}
+{{- if $categories -}}
+<div class="color-bg-subtle rounded-2 p-3 mb-3">
+  <h3 class="h5 mb-2">{{ i18n "categories" | default "Categories" }}</h3>
+  <ul class="list-style-none">
+    {{- range $name, $taxonomy := $categories -}}
+    <li class="mb-1">
+      <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}/" class="Link--secondary">
+        {{ $name }} <span class="Counter Counter--secondary ml-1">{{ len $taxonomy }}</span>
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
+{{- end -}}

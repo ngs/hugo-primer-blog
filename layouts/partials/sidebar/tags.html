@@ -1,0 +1,13 @@
+{{- $tags := .Site.Taxonomies.tags -}}
+{{- if $tags -}}
+<div class="color-bg-subtle rounded-2 p-3 mb-3">
+  <h3 class="h5 mb-2">{{ i18n "tags" | default "Tags" }}</h3>
+  <div class="d-flex flex-wrap" style="gap: 0.5rem;">
+    {{- range $name, $taxonomy := $tags -}}
+    <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" class="topic-tag">
+      {{ $name }}
+    </a>
+    {{- end -}}
+  </div>
+</div>
+{{- end -}}

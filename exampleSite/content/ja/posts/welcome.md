@@ -3,6 +3,7 @@ title: "ブログへようこそ"
 date: 2024-01-15
 draft: false
 tags: ["welcome", "hugo", "primer"]
+archives: ["2024-01"]
 categories: ["general"]
 author: "Your Name"
 description: "Hugo と Primer CSS で構築された新しいブログへようこそ。"

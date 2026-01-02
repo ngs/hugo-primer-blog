@@ -1,0 +1,17 @@
+{{- $taxonomy := .Site.Taxonomies.archives -}}
+{{- if $taxonomy -}}
+<div class="color-bg-subtle rounded-2 p-3 mb-3">
+  <h3 class="h5 mb-2">
+    <a href="{{ "/archives/" | relLangURL }}" class="Link--primary">{{ i18n "archive" | default "Archive" }}</a>
+  </h3>
+  <ul class="list-style-none">
+    {{- range $taxonomy.ByCount | first 12 -}}
+    <li class="mb-1">
+      <a href="{{ .Page.RelPermalink }}" class="Link--secondary">
+        {{ .Page.Title }} <span class="Counter Counter--secondary ml-1">{{ .Count }}</span>
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
+{{- end -}}

@@ -1,8 +1,9 @@
 ---
 title: "Sample Post 8: Lorem Ipsum"
-date: 2024-01-08
+date: 2023-12-25
 draft: false
 tags: ["sample", "demo"]
+archives: ["2023-12"]
 categories: ["general"]
 author: "Demo Author"
 description: "This is sample post number 8 for testing pagination functionality."

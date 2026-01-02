@@ -3,6 +3,7 @@ title: "Welcome to My Blog"
 date: 2024-01-15
 draft: false
 tags: ["welcome", "hugo", "primer"]
+archives: ["2024-01"]
 categories: ["general"]
 author: "Your Name"
 description: "Welcome to my new blog powered by Hugo and Primer CSS."

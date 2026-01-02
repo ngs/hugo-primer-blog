@@ -3,6 +3,7 @@ title: "Getting Started with Hugo"
 date: 2024-01-10
 draft: false
 tags: ["hugo", "tutorial", "static-site"]
+archives: ["2024-01"]
 categories: ["tutorial"]
 author: "Your Name"
 description: "Learn how to get started with Hugo, the world's fastest static site generator."

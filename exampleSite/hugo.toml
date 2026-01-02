@@ -25,9 +25,7 @@ enableGitInfo = false
 
 [params]
   sidebar = true
-  recentPosts = 5
-  showTags = true
-  showArchive = true
+  recentPostsCount = 5
   defaultTheme = "auto"
   dateFormat = "2006-01-02"
   showReadingTime = true
@@ -36,12 +34,28 @@ enableGitInfo = false
   author = "Your Name"
   description = "A blog powered by Hugo and Primer CSS"
 
-  # Custom sidebar modules (loaded from layouts/partials/sidebar/*.html)
+  # Sidebar modules (loaded from layouts/partials/sidebar/*.html)
+  # Order determines display order
   [[params.sidebarModules]]
     partial = "aboutme"
 
   [[params.sidebarModules]]
     partial = "social"
+
+  [[params.sidebarModules]]
+    partial = "recentPosts"
+
+  [[params.sidebarModules]]
+    partial = "tags"
+
+  [[params.sidebarModules]]
+    partial = "categories"
+
+  [[params.sidebarModules]]
+    partial = "archive"
+
+  [[params.sidebarModules]]
+    partial = "links"
 
   [params.social]
     github = "your-username"
@@ -81,6 +95,7 @@ enableGitInfo = false
 [taxonomies]
   tag = "tags"
   category = "categories"
+  archive = "archives"
 
 [markup]
   [markup.highlight]

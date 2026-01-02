@@ -1,8 +1,9 @@
 ---
 title: "サンプル記事 8: テスト投稿"
-date: 2024-01-08
+date: 2023-12-25
 draft: false
 tags: ["サンプル", "デモ"]
+archives: ["2023-12"]
 categories: ["general"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 8 です。"

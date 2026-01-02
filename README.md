@@ -72,15 +72,24 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 
 [params]
-  sidebar = true           # Enable/disable sidebar
-  recentPosts = 5          # Number of recent posts in sidebar
-  showTags = true          # Show tags in sidebar
-  showArchive = true       # Show archive in sidebar
-  defaultTheme = "auto"    # auto, light, or dark
+  sidebar = true            # Enable/disable sidebar
+  recentPostsCount = 5      # Number of recent posts in sidebar module
+  defaultTheme = "auto"     # auto, light, or dark
   dateFormat = "2006-01-02"
   showReadingTime = true
   showAuthor = true
   showShareButtons = true
+
+  # Sidebar modules - order determines display order
+  # Available: recentPosts, tags, categories, archive, links (+ custom partials)
+  [[params.sidebarModules]]
+    partial = "recentPosts"
+
+  [[params.sidebarModules]]
+    partial = "tags"
+
+  [[params.sidebarModules]]
+    partial = "archive"
 
   [params.social]
     github = "your-username"

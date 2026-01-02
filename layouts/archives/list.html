@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="markdown-body">
+  <h1>{{ .Title | default (i18n "archive" | default "Archive") }}</h1>
+
+  {{ .Content }}
+
+  {{- $terms := .Data.Terms.ByCount -}}
+  {{- if $terms -}}
+  <div class="d-flex flex-wrap mt-4" style="gap: 0.5rem;">
+    {{- range $terms -}}
+    <a href="{{ .Page.RelPermalink }}" class="topic-tag">
+      {{ .Page.Title }} <span class="Counter Counter--secondary ml-1">{{ .Count }}</span>
+    </a>
+    {{- end -}}
+  </div>
+  {{- end -}}
+</article>
+{{ end }}

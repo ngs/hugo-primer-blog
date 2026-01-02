@@ -3,6 +3,7 @@ title: "サンプル記事 3: テスト投稿"
 date: 2024-01-03
 draft: false
 tags: ["サンプル", "デモ"]
+archives: ["2024-01"]
 categories: ["general"]
 author: "デモ著者"
 description: "ページネーション機能をテストするためのサンプル記事 3 です。"

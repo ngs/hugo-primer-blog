@@ -3,6 +3,7 @@ title: "GitHub Flavored Markdown デモ"
 date: 2024-01-20
 draft: false
 tags: ["デモ", "マークダウン", "gfm"]
+archives: ["2024-01"]
 categories: ["ドキュメント"]
 author: "デモ著者"
 description: "GitHub Flavored Markdown の機能とシンタックスハイライトの包括的なデモンストレーション。"

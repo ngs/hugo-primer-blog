@@ -3,6 +3,7 @@ title: "Hugo 入門"
 date: 2024-01-10
 draft: false
 tags: ["hugo", "tutorial", "static-site"]
+archives: ["2024-01"]
 categories: ["tutorial"]
 author: "Your Name"
 description: "世界最速の静的サイトジェネレーター Hugo の使い方を学びましょう。"

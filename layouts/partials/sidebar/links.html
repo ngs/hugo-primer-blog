@@ -1,0 +1,12 @@
+{{- if .Site.Menus.sidebar -}}
+<div class="color-bg-subtle rounded-2 p-3 mb-3">
+  <h3 class="h5 mb-2">{{ i18n "links" | default "Links" }}</h3>
+  <ul class="list-style-none">
+    {{- range .Site.Menus.sidebar -}}
+    <li class="mb-1">
+      <a href="{{ .URL }}" class="Link--secondary">{{ .Name }}</a>
+    </li>
+    {{- end -}}
+  </ul>
+</div>
+{{- end -}}
