@@ -35,8 +35,10 @@ hugo mod init github.com/your-username/your-site
 ```toml
 [module]
   [[module.imports]]
-    path = "github.com/ngs/hugo-primer-blog"
+    path = "go.ngs.io/hugo-primer-blog"
 ```
+
+> **Note:** This theme uses a vanity import path. The module is hosted at [go.ngs.io/hugo-primer-blog](https://go.ngs.io/hugo-primer-blog/) and resolves to the GitHub repository.
 
 ### As a Git Submodule
 
@@ -182,8 +184,7 @@ To run the example site:
 git clone https://github.com/ngs/hugo-primer-blog.git
 cd hugo-primer-blog
 npm install
-cd exampleSite
-hugo server --themesDir ../..
+hugo server --source exampleSite
 ```
 
 Then open http://localhost:1313 in your browser.
