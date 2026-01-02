@@ -15,12 +15,13 @@
 <div class="Box">
   {{- $paginator := .Paginate .Pages -}}
   {{- range $paginator.Pages -}}
+  {{- $post := . -}}
   <div class="Box-row">
     <article class="d-flex flex-column flex-md-row">
       {{- with .Params.image -}}
       <div class="mr-md-3 mb-2 mb-md-0" style="flex-shrink: 0;">
-        <a href="{{ $.RelPermalink }}">
-          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="rounded-2" style="width: 200px; height: 120px; object-fit: cover;">
+        <a href="{{ $post.RelPermalink }}">
+          <img src="{{ . | relURL }}" alt="{{ $post.Title }}" class="rounded-2" style="width: 200px; height: 120px; object-fit: cover;">
         </a>
       </div>
       {{- end -}}

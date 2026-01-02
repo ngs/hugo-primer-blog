@@ -62,6 +62,7 @@ partial = "links"
 [params.social]
 github = "your-username"
 x = "your-username"
+bluesky = "your-username.bsky.social"
 
 [menus]
 [[menus.main]]
