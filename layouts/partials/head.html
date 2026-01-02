@@ -12,11 +12,35 @@
 <meta name="author" content="{{ . }}">
 {{- end -}}
 
-<!-- Open Graph -->
-<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<!-- Open Graph (default tags) -->
+{{- $hasOgType := false -}}
+{{- $hasOgTitle := false -}}
+{{- $hasOgDescription := false -}}
+{{- $hasOgUrl := false -}}
+{{- $hasOgImage := false -}}
+{{- $hasOgSiteName := false -}}
+{{- $hasOgLocale := false -}}
+{{- with .Params.ogp.og -}}
+  {{- if isset . "type" }}{{ $hasOgType = true }}{{ end -}}
+  {{- if isset . "title" }}{{ $hasOgTitle = true }}{{ end -}}
+  {{- if isset . "description" }}{{ $hasOgDescription = true }}{{ end -}}
+  {{- if isset . "url" }}{{ $hasOgUrl = true }}{{ end -}}
+  {{- if isset . "image" }}{{ $hasOgImage = true }}{{ end -}}
+  {{- if isset . "site_name" }}{{ $hasOgSiteName = true }}{{ end -}}
+  {{- if isset . "locale" }}{{ $hasOgLocale = true }}{{ end -}}
+{{- end -}}
+{{- if not $hasOgTitle -}}
+<meta property="og:title" content="{{ cond .IsHome .Site.Title .Title }}">
+{{- end -}}
+{{- if not $hasOgDescription -}}
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+{{- end -}}
+{{- if not $hasOgType -}}
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+{{- end -}}
+{{- if not $hasOgUrl -}}
 <meta property="og:url" content="{{ .Permalink }}">
+{{- end -}}
 {{- $ogImageSrc := "" -}}
 {{- with .Params.image -}}
   {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
@@ -30,17 +54,27 @@
     {{- end -}}
   {{- end -}}
 {{- else -}}
-  {{- with .Site.Params.ogImage -}}
+  {{- with $.Site.Params.ogImage -}}
     {{- $ogImageSrc = . -}}
   {{- end -}}
 {{- end -}}
+{{- if not $hasOgImage -}}
 {{- with $ogImageSrc -}}
 <meta property="og:image" content="{{ . }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 {{- end -}}
+{{- end -}}
+{{- if not $hasOgSiteName -}}
 <meta property="og:site_name" content="{{ .Site.Title }}">
+{{- end -}}
+{{- if not $hasOgLocale -}}
 <meta property="og:locale" content="{{ .Site.Language.Lang }}">
+{{- end -}}
+{{- /* Custom OGP tags from frontmatter (recursive) */ -}}
+{{- with .Params.ogp -}}
+{{- partial "ogp-meta.html" (dict "data" . "prefix" "") -}}
+{{- end -}}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="{{ if $ogImageSrc }}summary_large_image{{ else }}summary{{ end }}">

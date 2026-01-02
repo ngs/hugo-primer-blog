@@ -1,7 +1,15 @@
 ---
 title: "山田 太郎"
-date: 2024-01-01
 draft: false
+hideReadingTime: true
+ogp:
+  og:
+    type: profile
+  profile:
+    first_name: 太郎
+    last_name: 山田
+    username: your-username
+    gender: male
 ---
 
 <img src="https://picsum.photos/seed/profile/200/200" alt="プロフィール画像" class="avatar avatar-8 rounded-full mb-3" style="width: 200px; height: 200px;">

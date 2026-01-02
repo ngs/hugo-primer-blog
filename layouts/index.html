@@ -30,19 +30,26 @@
             <h3 class="f3 lh-condensed mb-1">
               <a href="{{ .RelPermalink }}" class="Link--primary">{{ .Title }}</a>
             </h3>
+            {{- $hasDate := not .Date.IsZero -}}
+            {{- $hasReadingTime := and site.Params.showReadingTime (ne .Params.hideReadingTime true) -}}
+            {{- $hasAuthor := .Params.author -}}
+            {{- if or $hasDate $hasReadingTime $hasAuthor -}}
             <div class="d-flex flex-items-center color-fg-muted f6 mb-2">
+              {{- if $hasDate -}}
               <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                 {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
               </time>
-              {{- if site.Params.showReadingTime -}}
-              <span class="mx-2">&middot;</span>
+              {{- end -}}
+              {{- if $hasReadingTime -}}
+              {{- if $hasDate -}}<span class="mx-2">&middot;</span>{{- end -}}
               <span>{{ .ReadingTime }} {{ i18n "minRead" | default "min read" }}</span>
               {{- end -}}
-              {{- with .Params.author -}}
-              <span class="mx-2">&middot;</span>
-              <span>{{ . }}</span>
+              {{- if $hasAuthor -}}
+              {{- if or $hasDate $hasReadingTime -}}<span class="mx-2">&middot;</span>{{- end -}}
+              <span>{{ .Params.author }}</span>
               {{- end -}}
             </div>
+            {{- end -}}
             {{- with .Description | default .Summary -}}
             <p class="color-fg-muted mb-2">{{ . | plainify | truncate 200 }}</p>
             {{- end -}}

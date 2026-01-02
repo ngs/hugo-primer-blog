@@ -2,19 +2,26 @@
 <article>
   <header class="mb-4">
     <h1 class="f1 lh-condensed mb-2">{{ .Title }}</h1>
+    {{- $hasDate := not .Date.IsZero -}}
+    {{- $hasReadingTime := and site.Params.showReadingTime (ne .Params.hideReadingTime true) -}}
+    {{- $hasAuthor := and site.Params.showAuthor .Params.author -}}
+    {{- if or $hasDate $hasReadingTime $hasAuthor -}}
     <div class="d-flex flex-items-center color-fg-muted f5 mb-3">
+      {{- if $hasDate -}}
       <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
         {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
       </time>
-      {{- if site.Params.showReadingTime -}}
-      <span class="mx-2">&middot;</span>
+      {{- end -}}
+      {{- if $hasReadingTime -}}
+      {{- if $hasDate -}}<span class="mx-2">&middot;</span>{{- end -}}
       <span>{{ .ReadingTime }} {{ i18n "minRead" | default "min read" }}</span>
       {{- end -}}
-      {{- if and site.Params.showAuthor .Params.author -}}
-      <span class="mx-2">&middot;</span>
+      {{- if $hasAuthor -}}
+      {{- if or $hasDate $hasReadingTime -}}<span class="mx-2">&middot;</span>{{- end -}}
       <span>{{ .Params.author }}</span>
       {{- end -}}
     </div>
+    {{- end -}}
 
     {{- with .Params.tags -}}
     <div class="d-flex flex-wrap mb-3" style="gap: 0.5rem;">
@@ -73,9 +80,11 @@
       {{- range . -}}
       <div class="flex-1 mb-3 mb-md-0 mr-md-3">
         <a href="{{ .RelPermalink }}" class="Link--primary text-bold">{{ .Title }}</a>
+        {{- if not .Date.IsZero -}}
         <p class="color-fg-muted f6 mb-0">
           {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
         </p>
+        {{- end -}}
       </div>
       {{- end -}}
     </div>

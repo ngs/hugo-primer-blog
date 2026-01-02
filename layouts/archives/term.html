@@ -16,10 +16,14 @@
     {{- range $pages -}}
     <li class="mb-3 pb-3 border-bottom">
       <a href="{{ .RelPermalink }}" class="Link--primary f4">{{ .Title }}</a>
+      {{- if or (not .Date.IsZero) .Params.author -}}
       <span class="color-fg-muted f6 d-block mt-1">
+        {{- if not .Date.IsZero -}}
         {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
-        {{- with .Params.author }} · {{ . }}{{ end -}}
+        {{- end -}}
+        {{- with .Params.author }}{{- if not $.Date.IsZero }} · {{ end }}{{ . }}{{ end -}}
       </span>
+      {{- end -}}
       {{- with .Description -}}
       <p class="color-fg-muted f6 mt-1 mb-0">{{ . }}</p>
       {{- end -}}

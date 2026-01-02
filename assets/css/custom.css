@@ -10,7 +10,8 @@
    ======================================== */
 
 .AppHeader {
-  background-color: var(--header-bgColor, #24292f);
+  background-color: #24292fee;
+  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 100;

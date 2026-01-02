@@ -159,8 +159,69 @@ categories: ["tutorial"]
 author: "Your Name"
 description: "A brief description of the post"
 image: "/images/featured.jpg"  # Optional featured image
+hideReadingTime: true          # Optional: hide reading time for this page
 ---
 ```
+
+### Custom Open Graph (OGP) Meta Tags
+
+You can customize Open Graph meta tags per page using the `ogp` frontmatter. The structure is recursively converted to meta tags:
+
+```yaml
+---
+title: "About Me"
+ogp:
+  og:
+    type: profile
+  profile:
+    first_name: Atsushi
+    last_name: Nagase
+    username: ngs
+    gender: male
+---
+```
+
+This generates:
+
+```html
+<meta property="og:type" content="profile">
+<meta property="profile:first_name" content="Atsushi">
+<meta property="profile:last_name" content="Nagase">
+<meta property="profile:username" content="ngs">
+<meta property="profile:gender" content="male">
+```
+
+Nested structures are supported with colon-separated property names:
+
+```yaml
+ogp:
+  foo:
+    bar:
+      baz: "value"
+```
+
+Outputs: `<meta property="foo:bar:baz" content="value">`
+
+Arrays generate multiple meta tags with the same property:
+
+```yaml
+ogp:
+  article:
+    tag:
+      - Hugo
+      - Blog
+      - Tech
+```
+
+Outputs:
+
+```html
+<meta property="article:tag" content="Hugo">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Tech">
+```
+
+Default `og:*` tags (title, description, type, url, image, site_name, locale) are automatically generated unless overridden in the `ogp.og` section.
 
 ## Customization
 

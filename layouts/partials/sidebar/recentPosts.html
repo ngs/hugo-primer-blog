@@ -7,9 +7,11 @@
     {{- range $recentPosts -}}
     <li class="mb-2">
       <a href="{{ .RelPermalink }}" class="Link--primary">{{ .Title }}</a>
+      {{- if not .Date.IsZero -}}
       <span class="color-fg-muted f6 d-block">
         {{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}
       </span>
+      {{- end -}}
     </li>
     {{- end -}}
   </ul>

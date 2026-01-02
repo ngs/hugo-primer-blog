@@ -1,7 +1,15 @@
 ---
 title: "Taro Yamada"
-date: 2024-01-01
 draft: false
+hideReadingTime: true
+ogp:
+  og:
+    type: profile
+  profile:
+    first_name: Taro
+    last_name: Yamada
+    username: your-username
+    gender: male
 ---
 
 <img src="https://picsum.photos/seed/profile/200/200" alt="Profile Photo" class="avatar avatar-8 rounded-full mb-3" style="width: 200px; height: 200px;">

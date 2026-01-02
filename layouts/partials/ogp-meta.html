@@ -1,0 +1,30 @@
+{{- /*
+  Recursive OGP meta tag generator
+  Usage: {{ partial "ogp-meta.html" (dict "data" .Params.ogp "prefix" "") }}
+
+  Converts nested map structure to meta tags:
+    ogp:
+      foo:
+        bar: "value"
+  becomes:
+    <meta property="foo:bar" content="value">
+*/ -}}
+{{- $data := .data -}}
+{{- $prefix := .prefix -}}
+{{- range $key, $value := $data -}}
+  {{- $property := cond (eq $prefix "") $key (printf "%s:%s" $prefix $key) -}}
+  {{- if reflect.IsMap $value -}}
+    {{- /* Recurse into nested map */ -}}
+    {{- partial "ogp-meta.html" (dict "data" $value "prefix" $property) -}}
+  {{- else if reflect.IsSlice $value -}}
+    {{- /* Handle arrays - output multiple meta tags with same property */ -}}
+    {{- range $value -}}
+      {{- if not (reflect.IsMap .) -}}
+<meta property="{{ $property }}" content="{{ . }}">
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* Output leaf value as meta tag */ -}}
+<meta property="{{ $property }}" content="{{ $value }}">
+  {{- end -}}
+{{- end -}}
