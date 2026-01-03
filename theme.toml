@@ -8,7 +8,7 @@ demosite = "https://hugo-primer-blog-demo.ngs.io/"
 tags = ["blog", "primer", "dark mode", "responsive", "multilingual", "clean", "minimal", "github"]
 features = ["dark mode", "multilingual", "responsive", "sidebar", "tags", "archives", "pagination"]
 
-min_version = "0.112.0"
+min_version = "0.146.0"
 
 [author]
   name = "Atsushi Nagase"
