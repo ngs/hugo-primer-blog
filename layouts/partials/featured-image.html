@@ -28,6 +28,6 @@
     {{- end -}}
   {{- end -}}
   {{- if $imageSrc -}}
-  <img src="{{ $imageSrc }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
+  <img src="{{ $imageSrc }}" alt="{{ $alt }}" loading="lazy"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }}>
   {{- end -}}
 {{- end -}}

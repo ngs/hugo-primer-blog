@@ -1,0 +1,13 @@
+{{- $src := .Destination -}}
+{{- $alt := .Text -}}
+{{- $title := .Title -}}
+
+{{- /* Handle page bundle resources */ -}}
+{{- if not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/")) -}}
+  {{- $resource := .Page.Resources.GetMatch $src -}}
+  {{- if $resource -}}
+    {{- $src = $resource.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+<img src="{{ $src }}" alt="{{ $alt }}" loading="lazy"{{ with $title }} title="{{ . }}"{{ end }}>
