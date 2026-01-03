@@ -24,17 +24,18 @@ weight = 2
 description = "Hugo と Primer CSS で構築されたブログ"
 
 [params]
-author = "Your Name"
-dateFormat = "2006-01-02"
-defaultTheme = "auto"
-description = "A blog powered by Hugo and Primer CSS"
-ogImage = "https://picsum.photos/seed/ogimage/1200/630"
-recentPostsCount = 5
-showAuthor = true
-showReadingTime = true
-showShareButtons = true
-sidebar = true
-twitterSite = "your-username"
+author = "Your Name" 
+dateFormat = "2006-01-02" 
+defaultTheme = "auto" 
+description = "A blog powered by Hugo and Primer CSS" 
+ogImage = "https://picsum.photos/seed/ogimage/1200/630" 
+primaryColor = "#f67717ff" # Purple (GitHub style)
+recentPostsCount = 5 
+showAuthor = true 
+showReadingTime = true 
+showShareButtons = true 
+sidebar = true 
+twitterSite = "your-username" 
 
 # Sidebar modules (loaded from layouts/partials/sidebar/*.html)
 # Order determines display order
@@ -60,9 +61,9 @@ partial = "archive"
 partial = "links"
 
 [params.social]
+bluesky = "your-username.bsky.social"
 github = "your-username"
 x = "your-username"
-bluesky = "your-username.bsky.social"
 
 [menus]
 [[menus.main]]
@@ -127,8 +128,8 @@ term = ["HTML", "RSS"]
 
 [sitemap]
 changefreq = "weekly"
-priority = 0.5
 filename = "sitemap.xml"
+priority = 0.5
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]

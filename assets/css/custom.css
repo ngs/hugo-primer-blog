@@ -496,25 +496,25 @@
 
 [data-color-mode="dark"] .topic-tag,
 [data-dark-theme="dark"][data-color-mode="auto"] .topic-tag {
-  color: #58a6ff;
-  background-color: rgba(56, 139, 253, 0.15);
+  color: var(--fgColor-accent, #58a6ff);
+  background-color: var(--bgColor-accent-muted, rgba(56, 139, 253, 0.15));
 }
 
 [data-color-mode="dark"] .topic-tag:hover,
 [data-dark-theme="dark"][data-color-mode="auto"] .topic-tag:hover {
-  color: #ffffff;
-  background-color: #1f6feb;
+  color: var(--fgColor-onEmphasis, #ffffff);
+  background-color: var(--bgColor-accent-emphasis, #1f6feb);
 }
 
 @media (prefers-color-scheme: dark) {
   [data-color-mode="auto"] .topic-tag {
-    color: #58a6ff;
-    background-color: rgba(56, 139, 253, 0.15);
+    color: var(--fgColor-accent, #58a6ff);
+    background-color: var(--bgColor-accent-muted, rgba(56, 139, 253, 0.15));
   }
 
   [data-color-mode="auto"] .topic-tag:hover {
-    color: #ffffff;
-    background-color: #1f6feb;
+    color: var(--fgColor-onEmphasis, #ffffff);
+    background-color: var(--bgColor-accent-emphasis, #1f6feb);
   }
 }
 

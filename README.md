@@ -12,12 +12,13 @@ A clean, responsive Hugo blog theme using GitHub's [Primer CSS](https://primer.s
 - **Multilingual** - Full i18n support with included English and Japanese translations
 - **Responsive Design** - Looks great on all devices with optional sidebar layout
 - **Primer CSS** - Built on GitHub's design system for a clean, modern look
+- **Customizable Primary Color** - Easy accent color customization via config
 - **Markdown Styling** - Full Primer markdown styling for rich content
 - **Hugo Pipes** - Built with Hugo Pipes for optimized asset handling
 
 ## Requirements
 
-- Hugo v0.112.0 or later (Extended version not required)
+- Hugo v0.146.0 or later (Extended version not required)
 - Node.js and npm (for Primer CSS dependencies during theme development)
 
 ## Installation
@@ -237,6 +238,17 @@ Outputs:
 Default `og:*` tags (title, description, type, url, image, site_name, locale) are automatically generated unless overridden in the `ogp.og` section.
 
 ## Customization
+
+### Primary Color
+
+You can customize the accent color used for links, tags, pagination, and other interactive elements:
+
+```toml
+[params]
+  primaryColor = "#8250df"  # Purple
+```
+
+This overrides the default GitHub blue (`#0969da`) with your chosen color. The theme automatically generates appropriate shades for light and dark modes.
 
 ### Custom CSS
 

@@ -136,6 +136,32 @@
 </script>
 {{- end -}}
 
+<!-- Primary Color Customization -->
+{{- with .Site.Params.primaryColor -}}
+<style>
+  html,
+  html[data-color-mode="light"],
+  html[data-light-theme="light"][data-color-mode="auto"] {
+    --fgColor-accent: {{ . }} !important;
+    --bgColor-accent-emphasis: {{ . }} !important;
+    --bgColor-accent-muted: color-mix(in srgb, {{ . }} 15%, transparent) !important;
+  }
+  html[data-color-mode="dark"],
+  html[data-dark-theme="dark"][data-color-mode="auto"] {
+    --fgColor-accent: color-mix(in srgb, {{ . }} 80%, #ffffff) !important;
+    --bgColor-accent-emphasis: {{ . }} !important;
+    --bgColor-accent-muted: color-mix(in srgb, {{ . }} 20%, transparent) !important;
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-color-mode="auto"] {
+      --fgColor-accent: color-mix(in srgb, {{ . }} 80%, #ffffff) !important;
+      --bgColor-accent-emphasis: {{ . }} !important;
+      --bgColor-accent-muted: color-mix(in srgb, {{ . }} 20%, transparent) !important;
+    }
+  }
+</style>
+{{- end -}}
+
 <!-- Theme initialization (prevent flash) -->
 <script>
   (function() {
