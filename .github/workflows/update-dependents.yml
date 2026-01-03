@@ -1,0 +1,75 @@
+name: Update Dependent Repositories
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  update-dependents:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo:
+          - ngs/ja.ngs.io
+          - ngs/ngs.io
+    steps:
+      - name: Get tag version
+        id: tag
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repo }}
+          token: ${{ secrets.DEPENDENT_REPOS_PAT }}
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Update hugo-primer-blog dependency
+        run: |
+          hugo mod get go.ngs.io/hugo-primer-blog@${{ steps.tag.outputs.version }}
+          hugo mod tidy
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DEPENDENT_REPOS_PAT }}
+        run: |
+          BRANCH_NAME="chore/update-hugo-primer-blog-${{ steps.tag.outputs.version }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH_NAME"
+          git add go.mod go.sum
+          git commit -m "chore: update hugo-primer-blog to ${{ steps.tag.outputs.version }}"
+          git push origin "$BRANCH_NAME"
+
+          gh pr create \
+            --title "chore: update hugo-primer-blog to ${{ steps.tag.outputs.version }}" \
+            --body "This PR updates hugo-primer-blog theme to ${{ steps.tag.outputs.version }}.
+
+          Triggered by: https://github.com/ngs/hugo-primer-blog/releases/tag/${{ steps.tag.outputs.version }}
+
+          ---
+          *This PR was automatically created by GitHub Actions.*"
