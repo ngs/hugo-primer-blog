@@ -1,0 +1,11 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+## Posts
+
+{{- range where site.RegularPages "Section" "posts" }}
+{{- $url := .Permalink }}
+{{- with .OutputFormats.Get "markdown" }}{{ $url = .Permalink }}{{ end }}
+- [{{ .Title }}]({{ $url }}): {{ .Description | default .Summary | plainify }}
+{{- end }}

@@ -31,3 +31,28 @@
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# Output formats for LLM-friendly content (llms.txt + per-page Markdown).
+# These definitions are merged into the consuming site (mediaTypes/outputFormats
+# use the "shallow" merge strategy). To actually emit the files, the site must
+# opt in via [outputs] (which uses the "none" merge strategy and is NOT
+# inherited from a theme), e.g.:
+#
+#   [outputs]
+#   home = ["HTML", "RSS", "LLMS"]
+#   page = ["HTML", "Markdown"]
+[mediaTypes]
+  [mediaTypes."text/markdown"]
+    suffixes = ["md"]
+  [mediaTypes."text/plain"]
+    suffixes = ["txt"]
+
+[outputFormats]
+  [outputFormats.Markdown]
+    mediaType = "text/markdown"
+    baseName = "index"
+    isPlainText = true
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true

@@ -121,7 +121,8 @@ tabWidth = 4
 unsafe = true
 
 [outputs]
-home = ["HTML", "RSS"]
+home = ["HTML", "RSS", "LLMS"]
+page = ["HTML", "Markdown"]
 section = ["HTML", "RSS"]
 taxonomy = ["HTML"]
 term = ["HTML", "RSS"]
