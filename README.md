@@ -14,6 +14,7 @@ A clean, responsive Hugo blog theme using GitHub's [Primer CSS](https://primer.s
 - **Primer CSS** - Built on GitHub's design system for a clean, modern look
 - **Customizable Primary Color** - Easy accent color customization via config
 - **Markdown Styling** - Full Primer markdown styling for rich content
+- **LLM-friendly Output** - Optional `llms.txt` site index and per-page raw Markdown for AI consumption
 - **Hugo Pipes** - Built with Hugo Pipes for optimized asset handling
 
 ## Requirements
@@ -236,6 +237,49 @@ Outputs:
 ```
 
 Default `og:*` tags (title, description, type, url, image, site_name, locale) are automatically generated unless overridden in the `ogp.og` section.
+
+## LLM-friendly Output (llms.txt & Markdown)
+
+The theme ships two optional [output formats](https://gohugo.io/configuration/output-formats/) that make your content easy for LLMs and AI agents to consume:
+
+- **`LLMS`** - renders a single `/llms.txt` on the home page: an index of your posts (title, link, and description) following the [llms.txt](https://llmstxt.org/) convention.
+- **`Markdown`** - renders a raw Markdown `index.md` next to each page's `index.html`, containing the page's original Markdown content without HTML rendering.
+
+### Enabling
+
+The theme **defines** these output formats (and their media types) and provides the templates, but does not enable them by default. You opt in per site via `[outputs]`:
+
+```toml
+[outputs]
+  home = ["HTML", "RSS", "LLMS"]
+  page = ["HTML", "Markdown"]
+```
+
+> **Why opt in here, and not in the theme?** Hugo merges most config keys from themes, but the `outputs` key uses the `none` merge strategy, so it is **not** inherited from a theme. The format *definitions* (`outputFormats` / `mediaTypes`) use the `shallow` strategy and *are* inherited, so all you need in your own config is the `[outputs]` block above. See [Merge configuration from themes](https://gohugo.io/configuration/introduction/#merge-configuration-from-themes).
+
+Once enabled, `hugo` generates:
+
+```
+public/
+├── llms.txt                       # site index (home page)
+├── about/
+│   └── index.md                   # raw Markdown for the About page
+└── posts/
+    └── my-post/
+        ├── index.html
+        └── index.md               # raw Markdown for the post
+```
+
+For multilingual sites, one `llms.txt` is generated per language (e.g. `/llms.txt` and `/ja/llms.txt`), automatically using each language's title, description, and posts.
+
+### Customizing
+
+The output is rendered by two templates you can override like any other:
+
+- `layouts/home.llms.txt` - the `llms.txt` index. By default it lists pages in the `posts` section.
+- `layouts/page.md` - the per-page Markdown rendering.
+
+Copy either file into your site's `layouts/` directory to customize it.
 
 ## Customization
 
