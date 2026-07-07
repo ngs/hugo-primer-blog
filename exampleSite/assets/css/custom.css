@@ -1,0 +1,17 @@
+/* Custom user styles for the example site.
+   This file lives in the site root (assets/css/custom.css) and is loaded
+   AFTER the theme's primer-blog.css, so it can safely override theme styles
+   without shadowing the theme's essential header CSS. */
+
+/* Example: emphasize post title links with a subtle animated underline. */
+.Link--primary {
+  background-image: linear-gradient(var(--color-accent-fg), var(--color-accent-fg));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  transition: background-size 0.2s ease;
+}
+
+.Link--primary:hover {
+  background-size: 100% 2px;
+}
