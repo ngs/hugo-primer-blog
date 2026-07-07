@@ -296,11 +296,13 @@ This overrides the default GitHub blue (`#0969da`) with your chosen color. The t
 
 ### Custom CSS
 
-Create `assets/css/custom.css` in your site root to add custom styles (will be merged with the theme's custom.css):
+Create `assets/css/custom.css` in your site root to add custom styles:
 
 ```css
 /* Your custom styles here */
 ```
+
+The theme's own styles live in `assets/css/primer-blog.css`. Your `custom.css` is loaded *after* it, so your rules override the theme without shadowing it. (See `exampleSite/assets/css/custom.css` for a working example.)
 
 ### Overriding Templates
 

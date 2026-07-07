@@ -106,9 +106,15 @@
 {{- $primerCss := resources.Get "css/primer.css" | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ $primerCss.RelPermalink }}" integrity="{{ $primerCss.Data.Integrity }}">
 
-<!-- Custom Theme CSS -->
-{{- $customCss := resources.Get "css/custom.css" | minify | fingerprint -}}
+<!-- Primer Blog Theme CSS -->
+{{- $themeCss := resources.Get "css/primer-blog.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $themeCss.RelPermalink }}" integrity="{{ $themeCss.Data.Integrity }}">
+
+<!-- User Custom CSS (optional override) -->
+{{- with resources.Get "css/custom.css" -}}
+{{- $customCss := . | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ $customCss.RelPermalink }}" integrity="{{ $customCss.Data.Integrity }}">
+{{- end -}}
 
 <!-- Syntax Highlighting CSS -->
 {{- $syntaxCss := resources.Get "css/syntax.css" | minify | fingerprint -}}
