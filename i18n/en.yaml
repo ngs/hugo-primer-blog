@@ -20,6 +20,10 @@ tags: "Tags"
 categories: "Categories"
 archive: "Archive"
 links: "Links"
+taxonomyFilterLabel: "Filter {{ .taxonomy }}"
+taxonomyFilterPlaceholder: "Type to filter {{ .taxonomy }}..."
+taxonomyShown: "Showing {{ .shown }} of {{ .total }} {{ .taxonomy }}"
+taxonomyNoMatch: "No {{ .taxonomy }} match your search."
 
 # Reading
 minRead: "min read"

@@ -20,6 +20,10 @@ tags: "タグ"
 categories: "カテゴリー"
 archive: "アーカイブ"
 links: "リンク"
+taxonomyFilterLabel: "{{ .taxonomy }}を絞り込む"
+taxonomyFilterPlaceholder: "入力すると{{ .taxonomy }}を絞り込みます..."
+taxonomyShown: "全 {{ .total }} 件中 {{ .shown }} 件を表示"
+taxonomyNoMatch: "一致する{{ .taxonomy }}はありません。"
 
 # Reading
 minRead: "分で読めます"
