@@ -18,11 +18,11 @@
       {{- range $paginator.Pages -}}
       {{- $post := . -}}
       <div class="Box-row">
-        <article class="d-flex flex-column flex-md-row">
+        <article class="d-flex flex-column">
           {{- with .Params.image -}}
-          <div class="mr-md-3 mb-2 mb-md-0" style="flex-shrink: 0;">
+          <div class="mb-2">
             <a href="{{ $post.RelPermalink }}">
-              {{- partial "featured-image.html" (dict "page" $post "class" "rounded-2" "style" "width: 200px; height: 120px; object-fit: cover;") -}}
+              {{- partial "featured-image.html" (dict "page" $post "class" "rounded-2 width-full" "style" "aspect-ratio: 992 / 525; object-fit: cover;") -}}
             </a>
           </div>
           {{- end -}}
