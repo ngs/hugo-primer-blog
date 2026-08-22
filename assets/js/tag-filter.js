@@ -10,7 +10,7 @@
     const empty = root.querySelector("[data-tag-filter-empty]");
     const items = Array.prototype.slice.call(root.querySelectorAll("[data-tag-name]"));
 
-    if (!input || items.length === 0) return;
+    if (!input) return;
 
     const total = items.length;
     const template = status ? status.getAttribute("data-tag-filter-template") || "" : "";

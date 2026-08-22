@@ -15,6 +15,9 @@
 {{- $entries = sort $entries "key" -}}
 {{- $total := len $entries -}}
 
+{{- /* Localized name of this taxonomy ("tags", "categories", ...), for the filter UI copy. */ -}}
+{{- $taxonomy := lower (i18n .Data.Plural | default .Title) -}}
+
 <div class="Subhead mb-4">
   <h1 class="Subhead-heading">{{ .Title }}</h1>
   {{- with .Description -}}
@@ -30,13 +33,13 @@
 
 <div data-tag-filter>
   <div class="FormControl FormControl--fullWidth mb-2">
-    <label class="FormControl-label" for="tag-filter-input">{{ i18n "tagsSearchLabel" | default "Filter tags" }}</label>
+    <label class="FormControl-label" for="taxonomy-filter-input">{{ i18n "taxonomyFilterLabel" (dict "taxonomy" $taxonomy) | default (printf "Filter %s" $taxonomy) }}</label>
     <input
       type="search"
-      id="tag-filter-input"
+      id="taxonomy-filter-input"
       class="FormControl-input FormControl-medium width-full"
       autocomplete="off"
-      placeholder="{{ i18n "tagsSearchPlaceholder" | default "Filter tags..." }}"
+      placeholder="{{ i18n "taxonomyFilterPlaceholder" (dict "taxonomy" $taxonomy) | default (printf "Type to filter %s..." $taxonomy) }}"
       data-tag-filter-input>
   </div>
 
@@ -45,8 +48,8 @@
     role="status"
     aria-live="polite"
     data-tag-filter-status
-    data-tag-filter-template="{{ i18n "tagsShown" (dict "shown" "__SHOWN__" "total" "__TOTAL__") | default "Showing __SHOWN__ of __TOTAL__ tags" }}">
-    {{- i18n "tagsShown" (dict "shown" $total "total" $total) | default (printf "Showing %d of %d tags" $total $total) -}}
+    data-tag-filter-template="{{ i18n "taxonomyShown" (dict "shown" "__SHOWN__" "total" "__TOTAL__" "taxonomy" $taxonomy) | default (printf "Showing __SHOWN__ of __TOTAL__ %s" $taxonomy) }}">
+    {{- i18n "taxonomyShown" (dict "shown" $total "total" $total "taxonomy" $taxonomy) | default (printf "Showing %d of %d %s" $total $total $taxonomy) -}}
   </p>
 
   <ul class="list-style-none d-flex flex-wrap pl-0" aria-label="{{ .Title }}">
@@ -61,7 +64,7 @@
     {{- end -}}
   </ul>
 
-  <p class="color-fg-muted" hidden data-tag-filter-empty>{{ i18n "tagsNoMatch" | default "No tags match your search." }}</p>
+  <p class="color-fg-muted" hidden data-tag-filter-empty>{{ i18n "taxonomyNoMatch" (dict "taxonomy" $taxonomy) | default (printf "No %s match your search." $taxonomy) }}</p>
 </div>
 
 {{- $tagFilterJs := resources.Get "js/tag-filter.js" | minify | fingerprint -}}
