@@ -32,7 +32,7 @@
     {{- end -}}
 
     {{- with .Params.image -}}
-    {{- partial "featured-image.html" (dict "page" $ "class" "rounded-2 width-full mb-3" "style" "max-height: 400px; object-fit: cover;") -}}
+    {{- partial "featured-image.html" (dict "page" $ "class" "rounded-2 width-full mb-3" "style" "aspect-ratio: 992 / 525; object-fit: cover;") -}}
     {{- end -}}
   </header>
 

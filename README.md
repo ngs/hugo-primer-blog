@@ -173,7 +173,7 @@ tags: ["hugo", "primer"]
 categories: ["tutorial"]
 author: "Your Name"
 description: "A brief description of the post"
-image: "/images/featured.jpg"  # Optional featured image
+image: "/images/featured.jpg"  # Optional featured image (992×525 recommended; rendered at that aspect ratio)
 hideReadingTime: true          # Optional: hide reading time for this page
 ---
 ```
