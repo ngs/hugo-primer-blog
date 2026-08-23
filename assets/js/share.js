@@ -29,7 +29,9 @@
       } finally {
         // Must run even on an unexpected throw: an orphaned textarea is
         // invisible, holds focus, and swallows every later keystroke.
-        document.body.removeChild(textarea);
+        // remove() over removeChild(): throwing here would skip the focus
+        // restore below and mask whatever went wrong in the try.
+        textarea.remove();
         if (previous && typeof previous.focus === "function") {
           previous.focus({ preventScroll: true });
         }
@@ -122,9 +124,13 @@
     }
 
     // Tokenised so a share that settles long after its watchdog released the
-    // lock cannot unlock, or copy over, a newer one that is still in flight.
+    // lock cannot unlock, or copy over, whatever the button is doing by then.
     function endShare(token) {
       if (token !== shareToken) return false;
+      // Retire the share here rather than only on the next click: whichever of
+      // the watchdog and the settle arrives first wins, and the other is
+      // ignored even when no newer share followed it.
+      shareToken++;
       sharing = false;
       window.clearTimeout(shareGuard);
       shareGuard = null;
