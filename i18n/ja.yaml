@@ -30,6 +30,9 @@ minRead: "分で読めます"
 
 # Share
 share: "共有"
+shareNative: "共有する"
+copyLink: "リンクをコピー"
+linkCopied: "コピーしました"
 
 # Pagination
 pagination: "ページネーション"

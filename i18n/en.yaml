@@ -30,6 +30,9 @@ minRead: "min read"
 
 # Share
 share: "Share"
+shareNative: "Share…"
+copyLink: "Copy link"
+linkCopied: "Copied"
 
 # Pagination
 pagination: "Pagination"
