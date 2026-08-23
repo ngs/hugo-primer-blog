@@ -598,6 +598,21 @@ footer a:hover {
   border-top: 1px solid var(--borderColor-default, #d0d7de) !important;
 }
 
+/* Post list featured images: full width on mobile, fixed thumbnail on desktop */
+.post-list-image {
+  width: 100%;
+  aspect-ratio: 992 / 525;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .post-list-image {
+    width: 200px;
+    height: 120px;
+    aspect-ratio: auto;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 767px) {
   .markdown-body {
