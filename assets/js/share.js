@@ -17,20 +17,22 @@
       textarea.style.top = "0";
       textarea.style.opacity = "0";
       document.body.appendChild(textarea);
-      textarea.select();
-      // select() alone does not reliably set the selection on iOS.
-      textarea.setSelectionRange(0, text.length);
 
       let succeeded = false;
       try {
+        textarea.select();
+        // select() alone does not reliably set the selection on iOS.
+        textarea.setSelectionRange(0, text.length);
         succeeded = document.execCommand("copy");
       } catch (e) {
         succeeded = false;
-      }
-
-      document.body.removeChild(textarea);
-      if (previous && typeof previous.focus === "function") {
-        previous.focus({ preventScroll: true });
+      } finally {
+        // Must run even on an unexpected throw: an orphaned textarea is
+        // invisible, holds focus, and swallows every later keystroke.
+        document.body.removeChild(textarea);
+        if (previous && typeof previous.focus === "function") {
+          previous.focus({ preventScroll: true });
+        }
       }
 
       if (succeeded) {
@@ -66,10 +68,15 @@
     const labelCopied = button.getAttribute("data-label-copied");
     const labelError = button.getAttribute("data-label-error");
 
+    // The icon is aria-hidden, so a missing label would leave the button with
+    // no accessible name. Leave it hidden instead, as it is without scripting.
+    if (!labelDefault || !labelCopied || !labelError) return;
+
     let resetTimer = null;
     let statusFrame = null;
     let sharing = false;
     let shareGuard = null;
+    let shareToken = 0;
 
     function clearStatus() {
       // A frame queued while the tab was hidden would otherwise run on return
@@ -114,10 +121,14 @@
       );
     }
 
-    function endShare() {
+    // Tokenised so a share that settles long after its watchdog released the
+    // lock cannot unlock, or copy over, a newer one that is still in flight.
+    function endShare(token) {
+      if (token !== shareToken) return false;
       sharing = false;
       window.clearTimeout(shareGuard);
       shareGuard = null;
+      return true;
     }
 
     label.textContent = labelDefault;
@@ -133,27 +144,34 @@
       // rejected as a concurrent share and silently copy the link instead.
       if (sharing) return;
       sharing = true;
+      const token = ++shareToken;
       // Release the lock even if the promise never settles, so a wedged share
       // leaves a working button rather than a dead one.
-      shareGuard = window.setTimeout(endShare, SHARE_LOCK_TIMEOUT);
+      shareGuard = window.setTimeout(function () {
+        endShare(token);
+      }, SHARE_LOCK_TIMEOUT);
 
       let result;
       try {
         result = navigator.share({ title: title, url: url });
       } catch (e) {
         // Some engines throw synchronously rather than rejecting.
-        endShare();
+        endShare(token);
         copyFallback();
         return;
       }
 
       if (!result || typeof result.then !== "function") {
-        endShare();
+        endShare(token);
         return;
       }
 
-      result.then(endShare, function (error) {
-        endShare();
+      result.then(function () {
+        endShare(token);
+      }, function (error) {
+        // A settle this late belongs to a share the watchdog already gave up
+        // on; acting on it would disturb whichever share is current now.
+        if (!endShare(token)) return;
         // The reader dismissing the share sheet is not a failure.
         if (error && error.name === "AbortError") return;
         copyFallback();
